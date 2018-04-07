@@ -23,7 +23,8 @@ struct SceneRenderer {
 
 		if (hitRec)
 		{
-			return Vec3toColor(0.5 * (hitRec->n + Vec3::One()));
+			const Ray newRay(hitRec->p, hitRec->n + RandomVec3());
+			return color(newRay) * 0.5;
 		}
 
 		const double lerpT = ray.direction.y + 1.0 * 0.5;
