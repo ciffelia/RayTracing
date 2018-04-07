@@ -212,49 +212,21 @@
     <Image Include="App\engine\texture\box-shadow\32.png" />
     <Image Include="App\engine\texture\box-shadow\64.png" />
     <Image Include="App\engine\texture\box-shadow\8.png" />
-    <Image Include="App\example\siv3d-kun.png" />
-    <Image Include="App\example\windmill.png" />
     <Image Include="App\icon.ico" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="App\Resource.rc" />
   </ItemGroup>
   <ItemGroup>
-    <Media Include="App\example\shot.mp3" />
-    <Media Include="App\example\test.mp3" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="App\engine\emoji\noto7_dictionary.dat" />
-    <None Include="App\engine\font\fontawesome\FontAwesome.otf.zst" />
     <None Include="App\engine\font\mplus\LICENSE_E" />
-    <None Include="App\engine\font\mplus\mplus-1p-black.ttf.zst" />
-    <None Include="App\engine\font\mplus\mplus-1p-bold.ttf.zst" />
-    <None Include="App\engine\font\mplus\mplus-1p-heavy.ttf.zst" />
-    <None Include="App\engine\font\mplus\mplus-1p-light.ttf.zst" />
-    <None Include="App\engine\font\mplus\mplus-1p-medium.ttf.zst" />
     <None Include="App\engine\font\mplus\mplus-1p-regular.ttf.zst" />
-    <None Include="App\engine\font\mplus\mplus-1p-thin.ttf.zst" />
-    <None Include="App\engine\font\noto\NotoColorEmoji.ttf.zst" />
-    <None Include="App\engine\font\noto\NotoEmoji-Regular.ttf.zst" />
     <None Include="App\engine\shader\line_dot.ps" />
     <None Include="App\engine\shader\line_round_dot.ps" />
     <None Include="App\engine\shader\shape.ps" />
     <None Include="App\engine\shader\sprite.ps" />
     <None Include="App\engine\shader\sprite.vs" />
     <None Include="App\engine\shader\sprite_sdf.ps" />
-    <None Include="App\example\a1a_testing" />
-    <None Include="App\example\a1a_training" />
-    <None Include="App\example\empty.bin" />
-    <None Include="App\example\test.ini" />
-    <None Include="App\example\test.json" />
-    <None Include="App\example\test.toml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="App\engine\font\fontawesome\LICENSE_OFL.txt" />
-    <Text Include="App\engine\font\noto\LICENSE_OFL.txt" />
-    <Text Include="App\example\LICENSE.txt" />
-    <Text Include="App\example\script.txt" />
-    <Text Include="App\example\test.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.hpp" />
