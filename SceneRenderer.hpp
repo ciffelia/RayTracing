@@ -17,10 +17,8 @@ struct SceneRenderer {
 	}
 
 	// 光線を飛ばして投影面の色を返す
-	ColorF color(const Vec2 imagePlanePos) const
+	ColorF color(const Ray ray) const
 	{
-		const Ray ray = scene.rayAt(imagePlanePos);
-
 		Optional<HitRec> hitRec = scene.trace(ray);
 
 		if (hitRec)
@@ -42,7 +40,7 @@ struct SceneRenderer {
 			const auto sampleRandomMax = scene.imagePlane.size / scene.camera.resolution;
 			const auto sampleImagePlanePos = imagePlanePos + RandomVec2(sampleRandomMax.x, sampleRandomMax.y);
 
-			const auto sampleColor = color(sampleImagePlanePos);
+			const auto sampleColor = color(scene.rayAt(sampleImagePlanePos));
 			result += sampleColor;
 		}
 
@@ -72,7 +70,7 @@ struct SceneRenderer {
 				// サンプル数1の場合はサンプリングしない
 				const auto pointColor =
 					samples == 1
-					? color(imagePlanePos)
+					? color(scene.rayAt(imagePlanePos))
 					: sampleColor(imagePlanePos, samples);
 
 				Point(x, y).overwrite(image, pointColor);
