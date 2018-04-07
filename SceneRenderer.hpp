@@ -10,12 +10,6 @@ struct SceneRenderer {
 		: scene(_scene)
 	{ }
 
-	// Vec3Œ^‚Ì’l‚ğColorFŒ^‚É•ÏŠ·‚·‚é
-	static constexpr ColorF Vec3toColor(const Vec3 v)
-	{
-		return { v.x, v.y, v.z };
-	}
-
 	// Œõü‚ğ”ò‚Î‚µ‚Ä“Š‰e–Ê‚ÌF‚ğ•Ô‚·
 	ColorF color(const Ray ray) const
 	{
