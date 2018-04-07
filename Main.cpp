@@ -1,0 +1,49 @@
+﻿#include <Siv3D.hpp> // OpenSiv3D v0.2.4
+
+#include "Scene.hpp"
+#include "ImagePlane.hpp"
+#include "SceneRenderer.hpp"
+
+// Debugビルドではサンプリングなし、OpenMP無効
+// Releaseビルドではサンプル数100、OpenMP有効
+#ifdef _DEBUG
+#define SAMPLES 1
+#else
+#define SAMPLES 100
+#endif
+
+// Sceneのパラメータ設定
+Scene buildScene()
+{
+	constexpr Camera camera({ 0, 0, 0 }, { 400, 200 });
+	constexpr ImagePlane imagePlane({ 0, 0, -1 }, { 4, 2 });
+
+	Scene scene(camera, imagePlane);
+
+	scene.spheres.emplace_back(Vec3(0, 0, -1), .5);
+	scene.spheres.emplace_back(Vec3(0, -100.5, -1), 100);
+
+	return scene;
+}
+
+void Main()
+{
+	Window::Resize(400, 200);
+
+	const Scene scene = buildScene();
+	
+	// 処理時間の計測
+	const MillisecClock clock;
+
+	const Image image = SceneRenderer(scene).render(SAMPLES);
+
+	// 計測結果を出力
+	clock.print();
+
+	const Texture texture(image);
+
+	while (System::Update())
+	{
+		texture.draw();
+	}
+}
