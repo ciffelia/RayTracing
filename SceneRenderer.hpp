@@ -11,14 +11,17 @@ struct SceneRenderer {
 	{ }
 
 	// Œõü‚ð”ò‚Î‚µ‚Ä“Š‰e–Ê‚ÌF‚ð•Ô‚·
-	ColorF color(const Ray ray) const
+	ColorF color(const Ray ray, const int depth = 0) const
 	{
+		if (depth > 10)
+			return Palette::Black;
+
 		Optional<HitRec> hitRec = scene.trace(ray);
 
 		if (hitRec)
 		{
 			const Ray newRay(hitRec->p, hitRec->n + RandomVec3());
-			return color(newRay) * 0.5;
+			return color(newRay, depth + 1) * 0.5;
 		}
 
 		const double lerpT = ray.direction.y + 1.0 * 0.5;
