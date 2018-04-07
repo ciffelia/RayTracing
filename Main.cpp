@@ -3,14 +3,7 @@
 #include "Scene.hpp"
 #include "ImagePlane.hpp"
 #include "SceneRenderer.hpp"
-
-// Debugビルドではサンプリングなし、OpenMP無効
-// Releaseビルドではサンプル数100、OpenMP有効
-#ifdef _DEBUG
-#define SAMPLES 1
-#else
-#define SAMPLES 100
-#endif
+#include "Constants.hpp"
 
 // Sceneのパラメータ設定
 Scene buildScene()
@@ -35,7 +28,7 @@ void Main()
 	// 処理時間の計測
 	const MillisecClock clock;
 
-	const Image image = SceneRenderer(scene).render(SAMPLES);
+	const Image image = SceneRenderer(scene).render(Constants::Samples);
 
 	// 計測結果を出力
 	clock.print();
