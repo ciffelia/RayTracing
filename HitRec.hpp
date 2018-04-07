@@ -2,6 +2,8 @@
 
 #include <Siv3D.hpp>
 
+struct Material;
+
 // 光線と物体が衝突したときの情報
 struct HitRec {
 	// 光線のベクトル方程式のパラメータ
@@ -13,11 +15,15 @@ struct HitRec {
 	// 物体の衝突した位置の法線
 	Vec3 n;
 
+	// 物体の材質
+	std::shared_ptr<Material> materialPtr;
+
 	HitRec() = default;
 
-	constexpr HitRec(const double _t, const Vec3 _p, const Vec3 _n)
+	HitRec(const double _t, const Vec3 _p, const Vec3 _n, const std::shared_ptr<Material> _materialPtr)
 		: t(_t)
 		, p(_p)
 		, n(_n)
+		, materialPtr(_materialPtr)
 	{ }
 };

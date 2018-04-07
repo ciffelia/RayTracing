@@ -4,6 +4,7 @@
 #include "ImagePlane.hpp"
 #include "SceneRenderer.hpp"
 #include "Constants.hpp"
+#include "Lambertian.hpp"
 
 // Sceneのパラメータ設定
 Scene buildScene()
@@ -13,8 +14,8 @@ Scene buildScene()
 
 	Scene scene(camera, imagePlane);
 
-	scene.spheres.emplace_back(Vec3(0, 0, -1), .5);
-	scene.spheres.emplace_back(Vec3(0, -100.5, -1), 100);
+	scene.spheres.emplace_back(Vec3(0, 0, -1), .5, std::make_shared<Lambertian>(ColorF(.5)));
+	scene.spheres.emplace_back(Vec3(0, -100.5, -1), 100, std::make_shared<Lambertian>(ColorF(.5)));
 
 	return scene;
 }

@@ -5,7 +5,10 @@
 // Œõü
 struct Ray
 {
+	// n“_
 	Vec3 origin;
+
+	// •ûŒü
 	Vec3 direction;
 
 	Ray() = default;

@@ -233,7 +233,10 @@
     <ClInclude Include="ColorUtil.hpp" />
     <ClInclude Include="Constants.hpp" />
     <ClInclude Include="HitRec.hpp" />
+    <ClInclude Include="Lambertian.hpp" />
+    <ClInclude Include="Material.hpp" />
     <ClInclude Include="Ray.hpp" />
+    <ClInclude Include="ScatterRec.hpp" />
     <ClInclude Include="Scene.hpp" />
     <ClInclude Include="ImagePlane.hpp" />
     <ClInclude Include="SceneRenderer.hpp" />

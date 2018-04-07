@@ -4,6 +4,7 @@
 #include "Scene.hpp"
 #include "ColorUtil.hpp"
 #include "Constants.hpp"
+#include "Material.hpp"
 
 struct SceneRenderer {
 	Scene scene;
@@ -18,12 +19,16 @@ struct SceneRenderer {
 		if (depth > 10)
 			return Palette::Black;
 
-		Optional<HitRec> hitRec = scene.trace(ray);
-
+		auto hitRec = scene.trace(ray);
 		if (hitRec)
 		{
-			const Ray newRay(hitRec->p, hitRec->n + RandomVec3());
-			return color(newRay, depth + 1) * 0.5;
+			const auto scatterRec = hitRec->materialPtr->scatter(ray, hitRec.value());
+			if (scatterRec)
+			{
+				return color(scatterRec->ray, depth + 1) * scatterRec->albedo;
+			}
+			
+			return Palette::Black;
 		}
 
 		const double lerpT = ray.direction.y + 1.0 * 0.5;

@@ -39,7 +39,7 @@ struct Scene
 
 	// Œõü‚Æ‹…‚ÌÕ“Ë”»’è
 	// Õ“Ë‚·‚éê‡‚ÍŒõü‚Ìn“_‚©‚ç‚Ì‹——£‚ğAÕ“Ë‚µ‚È‚¢ê‡‚Ínone‚ğ•Ô‚·
-	constexpr Optional<double> intersects(const Ray ray, const Sphere sphere) const
+	Optional<double> intersects(const Ray ray, const Sphere sphere) const
 	{
 		const auto co = ray.origin - sphere.center;
 
@@ -86,7 +86,7 @@ struct Scene
 				continue;
 
 			const auto p = ray.origin + ray.direction * t.value();
-			closestHit = HitRec(t.value(), p, (p - sphere.center).normalized());
+			closestHit = HitRec(t.value(), p, (p - sphere.center).normalized(), sphere.materialPtr);
 		}
 
 		return closestHit;
