@@ -230,6 +230,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.hpp" />
+    <ClInclude Include="ColorUtil.hpp" />
+    <ClInclude Include="Constants.hpp" />
     <ClInclude Include="HitRec.hpp" />
     <ClInclude Include="Ray.hpp" />
     <ClInclude Include="Scene.hpp" />
