@@ -24,7 +24,9 @@ struct SceneRenderer {
 		Optional<HitRec> hitRec = scene.trace(ray);
 
 		if (hitRec)
-			return Vec3toColor(0.5 * (hitRec.value().n + Vec3::One()));
+		{
+			return Vec3toColor(0.5 * (hitRec->n + Vec3::One()));
+		}
 
 		const double lerpT = ray.direction.y + 1.0 * 0.5;
 		return ColorF(1.0, 1.0, 1.0).lerp(ColorF(0.5, 0.7, 1.0), lerpT);

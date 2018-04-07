@@ -82,7 +82,7 @@ struct Scene
 
 			if (!t)
 				continue;
-			if (closestHit && closestHit.value().t < t)
+			if (closestHit && closestHit->t < t)
 				continue;
 
 			const auto p = ray.origin + ray.direction * t.value();
