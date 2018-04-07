@@ -56,13 +56,13 @@ struct Scene
 
 		// 小さい方の解が正だった場合
 		// 始点から近い交点が始点の表側にある
-		if (-b - Math::Sqrt(d) > 0)
+		if (-b - Math::Sqrt(d) > 0.001)
 			return (-b - Math::Sqrt(d)) / (2 * a);
 
 		// 小さい方の解が負で、大きい方の解が正だった場合
 		// 始点から近い交点は始点の裏側にあるが、
 		// 始点から遠い交点が始点の表側にある
-		if (-b + Math::Sqrt(d) > 0)
+		if (-b + Math::Sqrt(d) > 0.001)
 			return (-b + Math::Sqrt(d)) / (2 * a);
 		
 		// 解が2つとも負だった場合
