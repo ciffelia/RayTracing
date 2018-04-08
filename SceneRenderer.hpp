@@ -78,7 +78,7 @@ struct SceneRenderer {
 					? color(scene.rayAt(imagePlanePos))
 					: sampleColor(imagePlanePos, samples);
 
-				Point(x, y).overwrite(image, ColorUtil::linearToGamma(pointColor, Constants::GammaValue));
+				Point(x, y).overwrite(image, ColorUtil::LinearToGamma(pointColor, Constants::GammaValue));
 			}
 		}
 
