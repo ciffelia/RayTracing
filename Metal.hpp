@@ -3,6 +3,7 @@
 #include <Siv3D.hpp>
 
 #include "Material.hpp"
+#include "Utils.hpp"
 
 // 金属(鏡面反射)
 struct Metal : Material {
@@ -20,7 +21,7 @@ struct Metal : Material {
 		const Vec3 refrected = Reflect(ray.direction, hitRec.n);
 
 		// ずらす
-		const Vec3 direction = (refrected + RandomVec3() * fuzz).normalized();
+		const Vec3 direction = (refrected + Utils::RandomVec3InUnitSphere() * fuzz).normalized();
 
 		// 反射したベクトルと法線ベクトルのなす角が0°より小さいときは反射しない
 		if (direction.dot(hitRec.n) <= 0)

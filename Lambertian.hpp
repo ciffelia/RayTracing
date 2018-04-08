@@ -3,6 +3,7 @@
 #include <Siv3D.hpp>
 
 #include "Material.hpp"
+#include "Utils.hpp"
 
 // ƒ‰ƒ“ƒo[ƒg(ŠgU”½Ë)
 struct Lambertian : Material {
@@ -14,7 +15,7 @@ struct Lambertian : Material {
 
 	Optional<ScatterRec> scatter(const Ray ray, const HitRec hitRec) const override
 	{
-		const Ray newRay(hitRec.p, hitRec.n + RandomVec3());
+		const Ray newRay(hitRec.p, hitRec.n + Utils::RandomVec3InUnitSphere());
 
 		return ScatterRec(newRay, albedo);
 	}

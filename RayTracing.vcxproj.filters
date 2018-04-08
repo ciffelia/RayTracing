@@ -119,9 +119,6 @@
     <ClInclude Include="SceneRenderer.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ColorUtil.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Constants.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -135,6 +132,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Metal.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

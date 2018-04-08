@@ -2,7 +2,7 @@
 
 #include <Siv3D.hpp>
 #include "Scene.hpp"
-#include "ColorUtil.hpp"
+#include "Utils.hpp"
 #include "Constants.hpp"
 #include "Material.hpp"
 
@@ -78,7 +78,7 @@ struct SceneRenderer {
 					? color(scene.rayAt(imagePlanePos))
 					: sampleColor(imagePlanePos, samples);
 
-				Point(x, y).overwrite(image, ColorUtil::LinearToGamma(pointColor, Constants::GammaValue));
+				Point(x, y).overwrite(image, Utils::LinearToGamma(pointColor, Constants::GammaValue));
 			}
 		}
 
