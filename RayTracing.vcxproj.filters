@@ -134,5 +134,8 @@
     <ClInclude Include="Lambertian.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Metal.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

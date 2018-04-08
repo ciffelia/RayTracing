@@ -235,6 +235,7 @@
     <ClInclude Include="HitRec.hpp" />
     <ClInclude Include="Lambertian.hpp" />
     <ClInclude Include="Material.hpp" />
+    <ClInclude Include="Metal.hpp" />
     <ClInclude Include="Ray.hpp" />
     <ClInclude Include="ScatterRec.hpp" />
     <ClInclude Include="Scene.hpp" />
