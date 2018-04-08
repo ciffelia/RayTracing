@@ -15,9 +15,18 @@ RayT::Scene buildScene()
 
 	RayT::Scene scene(camera, imagePlane);
 
-	scene.spheres.emplace_back(Vec3(0.6, 0, -1), .5, std::make_shared<RayT::Lambertian>(ColorF(.1, .2, .5)));
-	scene.spheres.emplace_back(Vec3(-0.6, 0, -1), .5, std::make_shared<RayT::Metal>(ColorF(.8, .8, .8), 1));
-	scene.spheres.emplace_back(Vec3(0, -100.5, -1), 100, std::make_shared<RayT::Lambertian>(ColorF(.8, .8, 0)));
+	scene.spheres.emplace_back(
+		Vec3(0.6, 0, -1), .5,
+		std::make_shared<RayT::Lambertian>(ColorF(.1, .2, .5))
+	);
+	scene.spheres.emplace_back(
+		Vec3(-0.6, 0, -1), .5,
+		std::make_shared<RayT::Metal>(ColorF(.8, .8, .8), 1)
+	);
+	scene.spheres.emplace_back(
+		Vec3(0, -100.5, -1), 100,
+		std::make_shared<RayT::Lambertian>(ColorF(.8, .8, 0))
+	);
 
 	return scene;
 }
