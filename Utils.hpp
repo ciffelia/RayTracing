@@ -15,7 +15,7 @@ namespace RayT {
 			};
 		}
 
-		// リニア空間からsRGB空間へ変換
+		// sRGB空間からリニア空間へ変換
 		constexpr ColorF GammaToLinear(const ColorF color, const double gammaFactor) {
 			return {
 				Math::Pow(color.r, gammaFactor),
