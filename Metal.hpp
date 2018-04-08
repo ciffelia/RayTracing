@@ -7,20 +7,28 @@
 // 金属(鏡面反射)
 struct Metal : Material {
 	ColorF albedo;
+	double fuzz;
 
-	explicit Metal(const ColorF _albedo)
+	explicit Metal(const ColorF _albedo, const double _fuzz)
 		: albedo(_albedo)
+		, fuzz(_fuzz)
 	{ }
 
 	Optional<ScatterRec> scatter(const Ray ray, const HitRec hitRec) const override
 	{
-		const Ray newRay(hitRec.p, Reflect(ray.direction, hitRec.n));
-		const ScatterRec scratterRec(newRay, albedo);
+		// 反射
+		const Vec3 refrected = Reflect(ray.direction, hitRec.n);
 
-		return
-			newRay.direction.dot(hitRec.n) > 0
-			? make_Optional(scratterRec)
-			: none;
+		// ずらす
+		const Vec3 direction = (refrected + RandomVec3() * fuzz).normalized();
+
+		// 反射したベクトルと法線ベクトルのなす角が0°より小さいときは反射しない
+		if (direction.dot(hitRec.n) <= 0)
+			return none;
+
+		const Ray newRay(hitRec.p, direction);
+
+		return ScatterRec(newRay, albedo);
 	}
 
 	// nを法線ベクトルとする面で反射する

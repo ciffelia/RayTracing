@@ -16,7 +16,7 @@ Scene buildScene()
 	Scene scene(camera, imagePlane);
 
 	scene.spheres.emplace_back(Vec3(0.6, 0, -1), .5, std::make_shared<Lambertian>(ColorF(.1, .2, .5)));
-	scene.spheres.emplace_back(Vec3(-0.6, 0, -1), .5, std::make_shared<Metal>(ColorF(.8, .8, .8)));
+	scene.spheres.emplace_back(Vec3(-0.6, 0, -1), .5, std::make_shared<Metal>(ColorF(.8, .8, .8), .5));
 	scene.spheres.emplace_back(Vec3(0, -100.5, -1), 100, std::make_shared<Lambertian>(ColorF(.8, .8, 0)));
 
 	return scene;
