@@ -16,7 +16,7 @@ struct SceneRenderer {
 	// Œõü‚ð”ò‚Î‚µ‚Ä“Š‰e–Ê‚ÌF‚ð•Ô‚·
 	ColorF color(const Ray ray, const int depth = 0) const
 	{
-		if (depth > 10)
+		if (depth > Constants::MaxRecurse)
 			return Palette::Black;
 
 		auto hitRec = scene.trace(ray);
