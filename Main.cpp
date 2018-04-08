@@ -10,21 +10,32 @@
 // Sceneのパラメータ設定
 RayT::Scene buildScene()
 {
-	constexpr RayT::Camera camera({ 0, 0, 0 }, { 400, 200 });
-	constexpr RayT::ImagePlane imagePlane({ 0, 0, -1 }, { 4, 2 });
+	constexpr RayT::Camera camera({ 0, 0, 2 }, { 400, 200 });
+	constexpr RayT::ImagePlane imagePlane({ 0, 0, 0 }, { 4, 2 });
 
 	RayT::Scene scene(camera, imagePlane);
 
+	// 左の赤い球
 	scene.spheres.emplace_back(
-		Vec3(0.6, 0, -1), .5,
-		std::make_shared<RayT::Lambertian>(ColorF(.1, .2, .5))
+		Vec3(-1.2, 0, 0), .5,
+		std::make_shared<RayT::Lambertian>(ColorF(.7, .3, .9))
 	);
+
+	// 中央の黄色い球
 	scene.spheres.emplace_back(
-		Vec3(-0.6, 0, -1), .5,
-		std::make_shared<RayT::Metal>(ColorF(.8, .8, .8), 1)
+		Vec3(0, 0, 0), .5,
+		std::make_shared<RayT::Metal>(ColorF(.9, .7, .3), 0)
 	);
+
+	// 右の緑色の球
 	scene.spheres.emplace_back(
-		Vec3(0, -100.5, -1), 100,
+		Vec3(1.2, 0, 0), .5,
+		std::make_shared<RayT::Metal>(ColorF(.3, .9, .7), .3)
+	);
+
+	// 下の大きな球
+	scene.spheres.emplace_back(
+		Vec3(0, -100.5, 0), 100,
 		std::make_shared<RayT::Lambertian>(ColorF(.8, .8, 0))
 	);
 

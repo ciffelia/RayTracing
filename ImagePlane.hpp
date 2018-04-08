@@ -13,7 +13,7 @@ namespace RayT {
 
 		ImagePlane() = default;
 
-		constexpr ImagePlane(const Vec3 _center, const Size _size)
+		constexpr ImagePlane(const Vec3 _center, const Vec2 _size)
 			: center(_center)
 			, size(_size)
 		{ }
