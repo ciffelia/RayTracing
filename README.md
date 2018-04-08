@@ -1,6 +1,8 @@
 # RayTracing
 RayTracing on OpenSiv3D
 
+![Screenshot](Screenshot.png)
+
 ## Reference
 
 - [はじめてのレイトレーシング](https://raytracing.xyz/)
