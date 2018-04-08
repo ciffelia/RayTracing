@@ -30,7 +30,7 @@ namespace RayT {
 			while (true)
 			{
 				const Vec3 v = RandomVec3({ -1, 1 }, { -1, 1 }, { -1, 1 });
-				if (v.length() <= 1)
+				if (v.lengthSq() <= 1)
 					return v;
 			}
 		}
